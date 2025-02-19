@@ -1,8 +1,11 @@
-function Home(){
+import TopBar from "../../components/Topbar/Topbar";
 
-    return(
-        <h1>Home</h1>
-    )
-
+function Home() {
+  return (
+    <>
+      <TopBar />
+      <h1>Home</h1>
+    </>
+  );
 }
-export default Home
+export default Home;
