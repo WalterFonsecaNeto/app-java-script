@@ -1,28 +1,30 @@
-import styles from "./Topbar.module.css";
+import style from "./Topbar.module.css";
+import { useNavigate } from "react-router";
 
 export default function TopBar() {
-  return (
-    <header className={styles.topbar}>
-      {/* Logo */}
-      <h1 className={styles.logo}>Minha Loja</h1>
 
-      {/* Navegação */}
-      <nav className={styles.container_nav}>
-        <a href="#" className={styles.link}>
+  const navigate = useNavigate();
+
+  return (
+    <header className={style.container_topbar}>
+
+      <h1 className={style.logo}>Minha Loja</h1>
+
+      <nav className={style.container_nav}>
+        <a href="#" className={style.link}>
           Home
         </a>
-        <a href="#" className={styles.link}>
+        <a href="#" className={style.link}>
           Produtos
         </a>
-        <a href="#" className={styles.link}>
+        <a href="#" className={style.link}>
           Contato
         </a>
       </nav>
 
-      {/* Botões de Login e Cadastro */}
-      <div className={styles.container_botoes}>
-        <button className={styles.botao_login}>Login</button>
-        <button className={styles.botao_cadastro}>Cadastro</button>
+      <div className={style.container_botoes}>
+        <button onClick={() => navigate("/login")} className={style.botao_login}>Login</button>
+        <button onClick={() => navigate("/cadastro")} className={style.botao_cadastro}>Cadastro</button>
       </div>
     </header>
   );

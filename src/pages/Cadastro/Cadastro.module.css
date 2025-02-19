@@ -1,0 +1,109 @@
+/* Fundo azul escuro */
+.container_total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #001f3f, #002a5ee1);
+}
+
+/* Formulário centralizado com efeito opaco */
+.container_titulo_form {
+  background: rgba(255, 255, 255, 0.151);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 380px;
+  height: 400px;
+}
+
+/* Título */
+.container_titulo {
+  color: white;
+  margin-bottom: 3rem;
+}
+
+/* Botões de Login e Cadastro */
+.container_botoes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.botao_login{
+  width: 45%;
+  height: 40px;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.botao_cadastro{
+  width: 45%;
+  height: 40px;
+  background: white;
+  border: 1px solid white;
+  color: black;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.botao_login:hover,
+.botao_cadastro:hover {
+  background: white;
+  color: #001f3f;
+}
+
+/* Estilização do formulário */
+.container_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.container_form input {
+  width: 90%;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Link de esqueci minha senha */
+.link_esqueci_senha {
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  margin-top: 5px;
+  display: block;
+}
+
+.link_esqueci_senha:hover {
+  text-decoration: underline;
+}
+
+/* Botão de Cadastro */
+.botao_cadastrar {
+  width: 95%;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.botao_cadastrar:hover {
+ background: white;
+  color: #001f3f;
+}
