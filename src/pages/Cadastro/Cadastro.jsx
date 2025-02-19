@@ -19,26 +19,32 @@ function Cadastro() {
         email,
         senha
       );
-      console.log(response);
 
       // localStorage.setItem("token", response.token);
 
-      // window.location.href = "/login"
+      window.location.href = "/login";
     } catch (error) {
-      console.error(error.reponse.data);
+      console.error(error);
     }
+    setNome("");
+    setEmail("");
+    setSenha("");
   }
 
   return (
     <div className={style.container_total}>
       <div className={style.container_titulo_form}>
-
         <div className={style.container_titulo}>
           <h2>Cadastre-se</h2>
         </div>
 
         <div className={style.container_botoes}>
-          <button onClick={() => navigate("../login")} className={style.botao_login}>Login</button>
+          <button
+            onClick={() => navigate("../login")}
+            className={style.botao_login}
+          >
+            Login
+          </button>
           <button className={style.botao_cadastro}>Cadastro</button>
         </div>
 
@@ -65,8 +71,12 @@ function Cadastro() {
             required
           />
 
-          <a className={style.link_esqueci_senha} href="">Esqueci minha senha</a>
-          <button className={style.botao_cadastrar} type="submit">Cadastrar</button>
+          <a className={style.link_esqueci_senha} href="">
+            Esqueci minha senha
+          </a>
+          <button className={style.botao_cadastrar} type="submit">
+            Cadastrar
+          </button>
         </form>
       </div>
     </div>

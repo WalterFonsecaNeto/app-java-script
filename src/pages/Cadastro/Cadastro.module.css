@@ -73,6 +73,7 @@
   width: 90%;
   padding: 12px 10px;
   border: none;
+  outline: none;
   border-radius: 5px;
   font-size: 14px;
 }
