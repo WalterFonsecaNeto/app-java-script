@@ -31,7 +31,6 @@
   justify-content: space-around;
   margin-bottom: 1rem;
 }
-
 .botao_login{
   width: 45%;
   height: 40px;
@@ -54,7 +53,6 @@
   border-radius: 5px;
   transition: 0.3s;
 }
-
 .botao_login:hover,
 .botao_cadastro:hover {
   background: white;
@@ -68,7 +66,6 @@
   align-items: center;
   gap: 15px;
 }
-
 .container_form input {
   width: 90%;
   padding: 12px 10px;
@@ -86,12 +83,11 @@
   margin-top: 5px;
   display: block;
 }
-
 .link_esqueci_senha:hover {
   text-decoration: underline;
 }
 
-/* Botão de Cadastro */
+/* Botão de Salvar Cadastro */
 .botao_cadastrar {
   width: 95%;
   background: none;
@@ -103,7 +99,6 @@
   transition: 0.3s;
   margin-top: 10px;
 }
-
 .botao_cadastrar:hover {
  background: white;
   color: #001f3f;
