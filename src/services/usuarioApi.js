@@ -16,7 +16,6 @@ const LojaService = {
       email,
       senha,
     };
-    console.log(usuarioLogin);
     const response = await api.post(`/usuario/login`, usuarioLogin);
     return response.data;
   },

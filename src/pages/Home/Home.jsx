@@ -7,6 +7,8 @@ function Home() {
       <TopBar />
       <div className={style.container_total_pagina}>
         <h1>Home</h1>
+
+        <p>Usuario esta logado no sistema</p>
       </div>
     </>
   );

@@ -14,10 +14,11 @@ function Login() {
 
     try {
       const response = await UsuarioApi.logarUsuarioAsync(email, senha);
+      console.log(response.usuarioId);
       
-      // localStorage.setItem("token", response.token);
+      localStorage.setItem("usuarioId", response.usuarioId);
       
-      window.location.href = "/dashboard";
+      window.location.href = "/home";
     } catch (error) {
       console.error(error);
     }
@@ -28,6 +29,7 @@ function Login() {
   return (
     <div className={style.container_total}>
       <div className={style.container_titulo_form}>
+
         <div className={style.container_titulo}>
           <h2>Login</h2>
         </div>
@@ -61,6 +63,7 @@ function Login() {
           <a className={style.link_esqueci_senha} href="">Esqueci minha senha</a>
           <button className={style.botao_entrar} type="submit">Entrar</button>
         </form>
+
       </div>
     </div>
   );

@@ -1,15 +1,44 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import ProtectedRoute from "./ProtectedRoute"; 
+
+import Page404 from "../pages/Page404/Page404"; 
 import Home from "../pages/Home/Home";
 import Cadastro from "../pages/Cadastro/Cadastro";
 import Login from "../pages/Login/Login";
+import HomeInicial from "../pages/HomeInicial/HomeInicial";
+
+
 
 function Rotas() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/cadastro" element={<Cadastro />} />
-        <Route exact path="/login" element={<Login />} />
+        {/* Página 404 para qualquer URL desconhecida */}
+        <Route path="*" element={<Page404 />} />
+
+        {/* HomeInicial, Login e Cadastro são pública, mas se o usuário estiver logado, será redirecionado para /home */}
+        <Route
+          exact
+          path="/"
+          element={<ProtectedRoute element={<HomeInicial />} isPublic={true} />}
+        />
+        <Route
+          exact
+          path="/login"
+          element={<ProtectedRoute element={<Login />} isPublic={true} />}
+        />
+        <Route
+          exact
+          path="/cadastro"
+          element={<ProtectedRoute element={<Cadastro />} isPublic={true} />}
+        />
+        {/* A Home é protegida, apenas usuários logados podem acessar */}
+        <Route
+          exact
+          path="/home"
+          element={<ProtectedRoute element={<Home />} isPublic={false} />}
+        />
       </Routes>
     </Router>
   );

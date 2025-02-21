@@ -31,6 +31,10 @@
   color: #224997;
 }
 
+.link_ativo {
+  color: #224997; /* Altere para a cor que você quiser para o item ativo */
+}
+
 .container_botoes {
   display: flex;
   gap: 12px;
@@ -44,6 +48,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 16px;
 }
 
 .botao_login:hover {
@@ -59,8 +64,28 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-size: 16px;
 }
 
 .botao_cadastro:hover {
   background: #224997;
+}
+
+.botao_sair {
+  padding: 8px 16px;
+  border: 2px solid #102d5e;
+  color: #102d5e;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.botao_sair:hover {
+  background: #102d5e;
+  color: white;
 }
