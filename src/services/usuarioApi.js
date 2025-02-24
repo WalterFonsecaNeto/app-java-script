@@ -1,6 +1,6 @@
 import api from "./api";
 
-const LojaService = {
+const UsuarioService = {
   async obterUsuarioPorIdAsync(usuarioId) {
     const response = await api.get(`/usuario/obter/${usuarioId}`);
     return response.data;
@@ -52,4 +52,4 @@ const LojaService = {
   },
 };
 
-export default LojaService;
+export default UsuarioService;

@@ -1,0 +1,30 @@
+.card {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #102d5e;
+  color: #ffffff;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #224997;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
