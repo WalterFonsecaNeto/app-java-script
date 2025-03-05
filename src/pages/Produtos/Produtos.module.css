@@ -2,12 +2,12 @@
   padding: 20px;
 }
 
-.container_tiulo_botao_novo{
+.container_tiulo_botao_novo {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  & button{
+  & button {
     background-color: #102d5e;
     border: none;
     color: white;
@@ -39,16 +39,4 @@
 .botaoAdicionar:hover {
   background-color: #102d5e;
 }
-
-.icone {
-  font-size: 1.5rem;
-}
-
-.lojasContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-top: 30px;
-}
-
 

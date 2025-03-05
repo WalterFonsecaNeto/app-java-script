@@ -1,0 +1,96 @@
+.container_topbar {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.loja_selecionada {
+  background-color: #102d5e;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.container_nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.botao_sair {
+  position: absolute; /* Posiciona o botão em relação ao container da sidebar */
+  bottom: 0; /* Coloca o botão na parte inferior */
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  border: 2px solid #102d5e;
+  color: #102d5e;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  font-size: 16px;
+  justify-content: center;
+  
+}
+
+.botao_sair:hover {
+  background: #102d5e;
+  color: white;
+}
+
+.container_loja_selecionada_sair {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Estilo do dropdown */
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+  padding: 10px;
+}
+.botao_dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 4px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: 2px solid #102d5e;
+  color: #102d5e;
+  border-radius: 10px;
+}
+
+.dropdown_item {
+  color: #102d5e;
+  font-size: 16px;
+  font-weight: normal;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dropdown_item:hover {
+  color: #224997;
+}

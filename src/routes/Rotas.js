@@ -7,6 +7,8 @@ import Home from "../pages/Home/Home";
 import Cadastro from "../pages/Cadastro/Cadastro";
 import Login from "../pages/Login/Login";
 import HomeInicial from "../pages/HomeInicial/HomeInicial";
+import Produtos from "../pages/Produtos/Produtos";
+import Loja from "../pages/Loja/Loja";
 
 
 
@@ -39,6 +41,17 @@ function Rotas() {
           path="/home"
           element={<ProtectedRoute element={<Home />} isPublic={false} />}
         />
+        <Route
+          exact
+          path="/produtos"
+          element={<ProtectedRoute element={<Produtos />} isPublic={false} />}
+        />
+        <Route
+          exact
+          path="/loja/:lojaId"
+          element={<ProtectedRoute element={<Loja />} isPublic={false} />}
+        />
+
       </Routes>
     </Router>
   );

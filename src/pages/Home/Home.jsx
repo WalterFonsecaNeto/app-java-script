@@ -1,6 +1,6 @@
 import style from "./Home.module.css";
 import { useEffect, useState } from "react";
-import { FaPlus } from "react-icons/fa"; // Ícone de adicionar
+
 import TopBar from "../../components/Topbar/Topbar";
 import LojaApi from "../../services/lojaApi";
 import LojaCard from "../../components/lojaCard/LojaCard"; // Importando o novo componente
@@ -38,19 +38,11 @@ function Home() {
           <button onClick={AdicionarLoja}>+ Adicionar</button>
         </div>
 
-        {lojas.length === 0 ? (
-          <div className={style.container_centralizado}>
-            <button className={style.botao_adicionar} onClick={AdicionarLoja}>
-              <FaPlus className={style.icone} /> Adicionar Loja
-            </button>
-          </div>
-        ) : (
-          <div className={style.lojasContainer}>
-            {lojas.map((loja) => (
-              <LojaCard key={loja.id} loja={loja} />
-            ))}
-          </div>
-        )}
+        <div className={style.lojasContainer}>
+          {lojas.map((loja) => (
+            <LojaCard key={loja.id} loja={loja} />
+          ))}
+        </div>
       </div>
     </>
   );

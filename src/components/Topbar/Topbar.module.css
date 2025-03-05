@@ -89,8 +89,11 @@
   background: #102d5e;
   color: white;
 }
+
 .loja_selecionada{
   background-color: #102d5e;
+  border: none;
+  cursor: pointer;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;

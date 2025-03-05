@@ -11,43 +11,48 @@ export default function TopBar() {
   const [lojaSelecionada, setLojaSelecionada] = useState(false);
   const [loja, setLoja] = useState({});
   useEffect(() => {
-    // Verifica se o ID do usuário está salvo no localStorage
-    const usuarioId = localStorage.getItem("usuarioId");
-    setUsuarioLogado(!!usuarioId); // Atualiza o estado de usuario logado conforme o ID encontrado no localStorage
+    function VerificarUsuarioId() {
+      // Verifica se o ID do usuário está salvo no localStorage
+      const usuarioId = localStorage.getItem("usuarioId");
+      setUsuarioLogado(!!usuarioId); // Atualiza o estado de usuario logado conforme o ID encontrado no localStorage
+    }
+    VerificarUsuarioId();
 
-    const verificarLojaId = () => {
+    function VerificarLojaId() {
       const lojaId = localStorage.getItem("lojaId");
       setLojaSelecionada(!!lojaId);
 
       if (lojaId) {
         BuscarLoja(lojaId);
       }
-    };
-    verificarLojaId();
+    }
+    VerificarLojaId();
 
     // Verifica mudanças no localStorage a cada vez que ele muda
-    window.addEventListener("storage", verificarLojaId);
-
+    window.addEventListener("storage", VerificarLojaId);
     return () => {
-      window.removeEventListener("storage", verificarLojaId);
+      window.removeEventListener("storage", VerificarLojaId);
     };
   }, []);
 
+  //Função para buscar a loja pelo ID
   async function BuscarLoja() {
     const lojaId = localStorage.getItem("lojaId");
     try {
       const resposta = await LojaApi.ObterLojaPorId(true, lojaId);
-      console.log(resposta);
       setLoja(resposta);
     } catch (erro) {
       console.error("Erro ao buscar loja:", erro);
     }
   }
 
+  function IrParaAreaDaLojaSelecionada() {
+    navigate(`/loja/${loja.id}`);
+  }
+
   // Função para realizar o logout
   function SairDoSistema() {
-    localStorage.removeItem("usuarioId");
-    setUsuarioLogado(false); // Atualiza o estado de usuario logado para false
+    localStorage.clear();
     navigate("/");
   }
 
@@ -58,7 +63,7 @@ export default function TopBar() {
 
   return (
     <header className={style.container_topbar}>
-      <h1 className={style.logo}>Minha Loja</h1>
+      <h1 className={style.logo}>GestorShop</h1>
 
       {/* Exibe o menu apenas se o usuário estiver logado */}
       {usuarioLogado && (
@@ -94,14 +99,21 @@ export default function TopBar() {
           </>
         )}
 
-        {/* Exibe o botão de sair apenas se o usuário estiver logado */}
+        {/* Exibe o botão de sair apenas se o usuário estiver logado e a loja apenas se ela tiver sido selecionada*/}
         {usuarioLogado && (
-          <div className={style.container_loja_selecionada_sair}>
-            <p className={style.loja_selecionada}>{loja.nome}</p>
+          <>
+            {lojaSelecionada && (
+              <button
+                onClick={IrParaAreaDaLojaSelecionada}
+                className={style.loja_selecionada}
+              >
+                {loja.nome}
+              </button>
+            )}
             <button onClick={SairDoSistema} className={style.botao_sair}>
               <FiLogOut size={20} /> Sair
             </button>
-          </div>
+          </>
         )}
       </div>
     </header>
