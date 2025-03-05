@@ -2,6 +2,27 @@
   padding: 20px;
 }
 
+
+.container_tiulo_botao_novo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & button{
+    background-color: #102d5e;
+    border: none;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    &:hover {
+      background-color: #224997;
+    }
+  }
+}
+
 .container_centralizado {
   display: flex;
   justify-content: center;
@@ -37,3 +58,5 @@
   gap: 40px;
   margin-top: 30px;
 }
+
+

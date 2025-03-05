@@ -11,7 +11,10 @@ function Home() {
   async function BuscarLojas() {
     try {
       const usuarioId = localStorage.getItem("usuarioId");
-      const response = await LojaApi.listarLojasPorUsuarioIdAsync(true, usuarioId);
+      const response = await LojaApi.listarLojasPorUsuarioIdAsync(
+        true,
+        usuarioId
+      );
       setLojas(response);
     } catch (error) {
       console.error("Erro ao buscar lojas:", error);
@@ -30,12 +33,14 @@ function Home() {
     <>
       <TopBar />
       <div className={style.container_total_pagina}>
-        <h1>Home</h1>
-        <p>Usuário está logado no sistema</p>
+        <div className={style.container_tiulo_botao_novo}>
+          <h1>Home</h1>
+          <button onClick={AdicionarLoja}>+ Adicionar</button>
+        </div>
 
         {lojas.length === 0 ? (
           <div className={style.container_centralizado}>
-            <button className={style.botaoAdicionar} onClick={AdicionarLoja}>
+            <button className={style.botao_adicionar} onClick={AdicionarLoja}>
               <FaPlus className={style.icone} /> Adicionar Loja
             </button>
           </div>
