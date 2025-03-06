@@ -1,6 +1,6 @@
 import style from "./Produtos.module.css";
 import { useEffect, useState } from "react";
-import TopBar from "../../components/Topbar/Topbar";
+import TopBar from "../../../components/Topbar/Topbar";
 function Produtos() {
   const [produtos, setProdutos] = useState([]);
 

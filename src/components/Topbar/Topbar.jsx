@@ -72,6 +72,12 @@ export default function TopBar() {
             Home
           </a>
           <a
+            href="/usuarios"
+            className={`${style.link} ${isActive("/usuarios")}`}
+          >
+            Usuarios
+          </a>
+          <a
             href="/produtos"
             className={`${style.link} ${isActive("/produtos")}`}
           >
