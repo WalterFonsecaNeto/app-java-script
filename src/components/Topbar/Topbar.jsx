@@ -10,11 +10,18 @@ export default function TopBar() {
   const [usuarioLogado, setUsuarioLogado] = useState(false);
   const [lojaSelecionada, setLojaSelecionada] = useState(false);
   const [loja, setLoja] = useState({});
+  const [tipoUsuario, setTipoUsuario] = useState(null); // Para armazenar o TipoUsuarioId
+
   useEffect(() => {
     function VerificarUsuarioId() {
-      // Verifica se o ID do usuário está salvo no localStorage
       const usuarioId = localStorage.getItem("usuarioId");
-      setUsuarioLogado(!!usuarioId); // Atualiza o estado de usuario logado conforme o ID encontrado no localStorage
+      setUsuarioLogado(!!usuarioId);
+
+      if (usuarioId) {
+        // Verificar o tipo de usuário, por exemplo, administrador ou outro tipo
+        const tipoUsuarioId = localStorage.getItem("tipoUsuarioId");
+        setTipoUsuario(tipoUsuarioId);
+      }
     }
     VerificarUsuarioId();
 
@@ -68,21 +75,30 @@ export default function TopBar() {
       {/* Exibe o menu apenas se o usuário estiver logado */}
       {usuarioLogado && (
         <nav className={style.container_nav}>
+          {/* Exibe o link de "Home" sempre */}
           <a href="/home" className={`${style.link} ${isActive("/home")}`}>
             Home
           </a>
-          <a
-            href="/usuarios"
-            className={`${style.link} ${isActive("/usuarios")}`}
-          >
-            Usuarios
-          </a>
-          <a
-            href="/produtos"
-            className={`${style.link} ${isActive("/produtos")}`}
-          >
-            Produtos
-          </a>
+
+          {/* Exibe o link "Usuarios" apenas se o tipo de usuário for ADMIN (TipoUsuarioId 1) */}
+          {tipoUsuario === "1" && (
+            <a
+              href="/usuarios"
+              className={`${style.link} ${isActive("/usuarios")}`}
+            >
+              Usuarios
+            </a>
+          )}
+
+          {/* Exibe o link "Produtos" para ADMIN (TipoUsuarioId 1) e Gerente (TipoUsuarioId 3) */}
+          {["1", "3"].includes(tipoUsuario) && (
+            <a
+              href="/produtos"
+              className={`${style.link} ${isActive("/produtos")}`}
+            >
+              Produtos
+            </a>
+          )}
         </nav>
       )}
 
@@ -105,7 +121,7 @@ export default function TopBar() {
           </>
         )}
 
-        {/* Exibe o botão de sair apenas se o usuário estiver logado e a loja apenas se ela tiver sido selecionada*/}
+        {/* Exibe o botão de sair apenas se o usuário estiver logado e a loja apenas se ela tiver sido selecionada */}
         {usuarioLogado && (
           <>
             {lojaSelecionada && (
