@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 
 import Page404 from "../pages/Page404/Page404";
-import Home from "../pages/Home/Home";
+import Lojas from "../pages/Lojas/Lojas";
 import Cadastro from "../pages/Cadastro/Cadastro";
 import Login from "../pages/Login/Login";
 import HomeInicial from "../pages/HomeInicial/HomeInicial";
@@ -40,8 +40,8 @@ function Rotas() {
         {/* A Home é protegida, apenas usuários logados podem acessar */}
         <Route
           exact
-          path="/home"
-          element={<ProtectedRoute element={<Home />} isPublic={false} />}
+          path="/lojas"
+          element={<ProtectedRoute element={<Lojas />} isPublic={false} />}
         />
         
         {/* Produtos: Apenas Administrador (1) e Gerente (3) podem acessar */}

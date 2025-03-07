@@ -76,8 +76,8 @@ export default function TopBar() {
       {usuarioLogado && (
         <nav className={style.container_nav}>
           {/* Exibe o link de "Home" sempre */}
-          <a href="/home" className={`${style.link} ${isActive("/home")}`}>
-            Home
+          <a href="/lojas" className={`${style.link} ${isActive("/lojas")}`}>
+            Lojas
           </a>
 
           {/* Exibe o link "Usuarios" apenas se o tipo de usuário for ADMIN (TipoUsuarioId 1) */}

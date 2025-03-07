@@ -1,11 +1,11 @@
-import style from "./Home.module.css";
+import style from "./Lojas.module.css";
 import { useEffect, useState } from "react";
 
 import TopBar from "../../components/Topbar/Topbar";
 import LojaApi from "../../services/lojaApi";
 import LojaCard from "../../components/lojaCard/LojaCard"; // Importando o novo componente
 
-function Home() {
+function Lojas() {
   const [lojas, setLojas] = useState([]);
 
   async function BuscarLojas() {
@@ -34,7 +34,7 @@ function Home() {
       <TopBar />
       <div className={style.container_total_pagina}>
         <div className={style.container_tiulo_botao_novo}>
-          <h1>Home</h1>
+          <h1>Lojas</h1>
           <button onClick={AdicionarLoja}>+ Adicionar</button>
         </div>
 
@@ -48,4 +48,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Lojas;
