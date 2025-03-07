@@ -33,7 +33,7 @@ const FormularioAdicionarLoja = () => {
   }
 
   return (
-    <div>
+    <div >
       <button onClick={() => setAberto(true)}>+ Adicionar</button>
 
       <ModalGlobal
