@@ -5,7 +5,6 @@ const ProtectedRoute = ({ element, isPublic = false, redirectPath = "/home", isP
   
   const estaLogado = !!localStorage.getItem("usuarioId");
   const tipoUsuarioId = Number(localStorage.getItem("tipoUsuarioId"));
-  console.log(tipoUsuarioId)
 
   // Se for uma rota pública e o usuário estiver logado, redireciona para outra página (ex: /home)
   if (isPublic && estaLogado) {

@@ -1,9 +1,16 @@
 import style from "./Cadastro.module.css";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+
 import UsuarioApi from "../../services/usuarioApi";
 
+import { useAlerta } from "../../hooks/useAlerta"; 
+import Alerta from "../../components/Alerta/Alerta"; 
+
 function Cadastro() {
+
+  const { exibirAlerta, mensagemAlerta, tipoAlerta, mostrarAlerta } = useAlerta(); 
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -14,18 +21,19 @@ function Cadastro() {
     event.preventDefault();
 
     try {
-      const response = await UsuarioApi.cadastrarUsuarioAsync(
-        nome,
-        email,
-        senha
-      );
+      await UsuarioApi.cadastrarUsuarioAsync(nome, email, senha);
 
-      // localStorage.setItem("token", response.token);
-
-      window.location.href = "/login";
+      // Aqui, você pode mostrar o alerta de sucesso
+      exibirAlerta("Cadastro realizado com sucesso!", "success", 2000);
+      
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 2000);
     } catch (error) {
-      console.error(error);
+      // Aqui, você pode mostrar o alerta de erro
+      exibirAlerta(error.response.data.erro, "danger", 5000);
     }
+
     setNome("");
     setEmail("");
     setSenha("");
@@ -33,7 +41,9 @@ function Cadastro() {
 
   return (
     <div className={style.container_total}>
+
       <div className={style.container_titulo_form}>
+
         <div className={style.container_titulo}>
           <h2>Cadastre-se</h2>
         </div>
@@ -78,7 +88,17 @@ function Cadastro() {
             Cadastrar
           </button>
         </form>
+
       </div>
+
+      {/* Exibindo o componente de Alerta */}
+      <Alerta
+        tipo={tipoAlerta}
+        mensagem={mensagemAlerta}
+        visivel={mostrarAlerta}
+        aoFechar={() => exibirAlerta("", "")} // Fecha o alerta e limpa ele
+      />
+      
     </div>
   );
 }
