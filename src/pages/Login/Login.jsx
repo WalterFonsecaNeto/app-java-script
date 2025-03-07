@@ -17,7 +17,7 @@ function Login() {
       console.log(response.usuarioId);
       
       localStorage.setItem("usuarioId", response.usuarioId);
-      localStorage.setItem("tipoUsuarioId", 1);
+      localStorage.setItem("tipoUsuarioId", response.tipoUsuarioId);
       
       window.location.href = "/home";
     } catch (error) {
