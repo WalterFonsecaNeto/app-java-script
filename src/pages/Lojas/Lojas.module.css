@@ -22,23 +22,7 @@
   }
 }
 
-.botaoAdicionar {
-  background-color: #224997;
-  color: #ffffff;
-  border: none;
-  padding: 12px 20px;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: background 0.3s ease-in-out;
-}
 
-.botaoAdicionar:hover {
-  background-color: #102d5e;
-}
 
 .icone {
   font-size: 1.5rem;

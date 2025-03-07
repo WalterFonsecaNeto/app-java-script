@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import TopBar from "../../components/Topbar/Topbar";
 import LojaApi from "../../services/lojaApi";
 import LojaCard from "../../components/lojaCard/LojaCard"; // Importando o novo componente
+import FormularioAdicionarLoja from "../../components/FormularioAdicionarLoja/FormularioAdicionarLoja";
 
 function Lojas() {
   const [lojas, setLojas] = useState([]);
@@ -25,17 +26,14 @@ function Lojas() {
     BuscarLojas();
   }, []);
 
-  function AdicionarLoja() {
-    console.log("Abrir modal ou redirecionar para adicionar nova loja");
-  }
-
   return (
     <>
       <TopBar />
       <div className={style.container_total_pagina}>
         <div className={style.container_tiulo_botao_novo}>
           <h1>Lojas</h1>
-          <button onClick={AdicionarLoja}>+ Adicionar</button>
+          {/* Componente abaixo já é o botão que abre o formulario */}
+          <FormularioAdicionarLoja />
         </div>
 
         <div className={style.lojasContainer}>
